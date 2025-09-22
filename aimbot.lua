@@ -1,7 +1,7 @@
 -- Script Hub's Aimbot for Unnamed Shooter
 -- Features: Aimbot, ESP, Triggerbot
 -- UI: Rayfield Library
--- Author:  (for Hamza's Script Hub) | Date: Sep 22, 2025
+-- Author: Grok (for Hamza's Script Hub) | Date: Sep 22, 2025
 
 -- Load Rayfield Library
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
@@ -86,8 +86,8 @@ RunService.Heartbeat:Connect(function()
         local Mouse = Players:GetMouse()
         local TargetHit = Mouse.Target
         if TargetHit and TargetHit.Parent:FindFirstChild("Humanoid") and TargetHit.Parent ~= LocalPlayer.Character then
-            -- Adapt to game's remote event for shooting (inspect remotes for Unnamed Shooter)
-            -- Example: game.ReplicatedStorage.ShootEvent:FireServer(Mouse.Hit)
+            print("Triggerbot detected enemy!") -- Debug print
+            -- Adapt to game's remote: game.ReplicatedStorage.ShootEvent:FireServer(Mouse.Hit)
         end
     end
 end)
@@ -115,6 +115,7 @@ AimbotTab:CreateToggle({
     Flag = "AimbotToggle",
     Callback = function(Value)
         AimbotEnabled = Value
+        print("Aimbot Enabled:", Value) -- Debug print
     end
 })
 AimbotTab:CreateToggle({
@@ -142,6 +143,7 @@ ESPTab:CreateToggle({
     Flag = "ESPToggle",
     Callback = function(Value)
         ToggleESP()
+        print("ESP Enabled:", Value) -- Debug print
     end
 })
 
@@ -153,6 +155,7 @@ TriggerTab:CreateToggle({
     Flag = "TriggerToggle",
     Callback = function(Value)
         TriggerbotEnabled = Value
+        print("Triggerbot Enabled:", Value) -- Debug print
     end
 })
 
